@@ -1,4 +1,5 @@
 import React from 'react';
+import './appointment.scss';
 
 const Appointment = ({
   appointment: {petName},
