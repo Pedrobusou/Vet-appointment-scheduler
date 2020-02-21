@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import uuid from 'uuid/v4';
 
-const Form = ({}) => {
+const Form = ({createAppointment}) => {
   const [appointment, setAppointment] = useState({
     petName: '',
     ownerName: '',
@@ -34,12 +34,16 @@ const Form = ({}) => {
     }
 
     setError(false);
-
     appointment.id = uuid();
+    createAppointment(appointment);
 
-    //TODO: create appointment
-
-    //TODO: reset form
+    setAppointment({
+      petName: '',
+      ownerName: '',
+      date: '',
+      time: '',
+      symptoms: ''
+    });
   };
 
   return (
