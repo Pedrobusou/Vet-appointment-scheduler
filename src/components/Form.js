@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import uuid from 'uuid/v4';
 
 const Form = ({}) => {
   const [appointment, setAppointment] = useState({
@@ -34,7 +35,7 @@ const Form = ({}) => {
 
     setError(false);
 
-    //TODO: assing ID
+    appointment.id = uuid();
 
     //TODO: create appointment
 
