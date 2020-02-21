@@ -1,5 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import uuid from 'uuid/v4';
+import PropTypes from 'prop-types';
 
 const Form = ({createAppointment}) => {
   const [appointment, setAppointment] = useState({
@@ -21,7 +22,6 @@ const Form = ({createAppointment}) => {
   const submit = event => {
     event.preventDefault();
 
-    //Validate fields
     if (
       !petName.trim() ||
       !ownerName.trim() ||
@@ -104,4 +104,9 @@ const Form = ({createAppointment}) => {
     </Fragment>
   );
 };
+
+Form.propTypes = {
+  createAppointment: PropTypes.func.isRequired
+};
+
 export default Form;

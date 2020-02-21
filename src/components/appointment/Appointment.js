@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './appointment.scss';
 
 const Appointment = ({
@@ -36,4 +37,10 @@ const Appointment = ({
     </button>
   </div>
 );
+
+Appointment.propType = {
+  appointment: PropTypes.object.isRequired,
+  removeAppointment: PropTypes.func.isRequired
+};
+
 export default Appointment;
