@@ -9,6 +9,8 @@ const Form = ({}) => {
     symptoms: ''
   });
 
+  const [error, setError] = useState(false);
+
   const {petName, ownerName, date, time, symptoms} = appointment;
 
   const handleChange = event => {
@@ -17,9 +19,20 @@ const Form = ({}) => {
 
   const submit = event => {
     event.preventDefault();
-    alert('submit');
 
-    //TODO: validate fields
+    //Validate fields
+    if (
+      !petName.trim() ||
+      !ownerName.trim() ||
+      !date.trim() ||
+      !time.trim() ||
+      !symptoms.trim()
+    ) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
 
     //TODO: assing ID
 
@@ -31,6 +44,8 @@ const Form = ({}) => {
   return (
     <Fragment>
       <h2>Create appointment</h2>
+
+      {error && <p className="alert-error">All fields are required</p>}
 
       <form onSubmit={submit}>
         <label>Pet name</label>
