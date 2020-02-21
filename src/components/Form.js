@@ -15,11 +15,24 @@ const Form = ({}) => {
     setAppointment({...appointment, [event.target.name]: event.target.value});
   };
 
+  const submit = event => {
+    event.preventDefault();
+    alert('submit');
+
+    //TODO: validate fields
+
+    //TODO: assing ID
+
+    //TODO: create appointment
+
+    //TODO: reset form
+  };
+
   return (
     <Fragment>
       <h2>Create appointment</h2>
 
-      <form action="">
+      <form onSubmit={submit}>
         <label>Pet name</label>
         <input
           type="text"
