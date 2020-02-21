@@ -9,8 +9,10 @@ const Form = ({}) => {
     symptoms: ''
   });
 
-  const handleChange = () => {
-    console.log('handleChange');
+  const {petName, ownerName, date, time, symptoms} = appointment;
+
+  const handleChange = event => {
+    setAppointment({...appointment, [event.target.name]: event.target.value});
   };
 
   return (
@@ -25,6 +27,7 @@ const Form = ({}) => {
           className="u-full-width"
           placeholder="Pet name"
           onChange={handleChange}
+          value={petName}
         />
 
         <label>Owner name</label>
@@ -34,6 +37,7 @@ const Form = ({}) => {
           className="u-full-width"
           placeholder="Owner name"
           onChange={handleChange}
+          value={ownerName}
         />
 
         <label>Date</label>
@@ -42,6 +46,7 @@ const Form = ({}) => {
           name="date"
           className="u-full-width"
           onChange={handleChange}
+          value={date}
         />
 
         <label>Time</label>
@@ -50,6 +55,7 @@ const Form = ({}) => {
           name="time"
           className="u-full-width"
           onChange={handleChange}
+          value={time}
         />
 
         <label>Symptoms</label>
@@ -57,6 +63,7 @@ const Form = ({}) => {
           name="symptoms"
           className="u-full-width"
           onChange={handleChange}
+          value={symptoms}
         ></textarea>
 
         <button className="u-full-width button-primary">Save</button>
