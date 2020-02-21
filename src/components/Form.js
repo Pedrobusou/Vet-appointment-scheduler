@@ -1,38 +1,67 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 
-const Form = ({}) => (
-  <Fragment>
-    <h2>Create appointment</h2>
+const Form = ({}) => {
+  const [appointment, setAppointment] = useState({
+    petName: '',
+    ownerName: '',
+    date: '',
+    time: '',
+    symptoms: ''
+  });
 
-    <form action="">
-      <label>Pet name</label>
-      <input
-        type="text"
-        name="pet-name"
-        className="u-full-width"
-        placeholder="Pet name"
-      />
+  const handleChange = () => {
+    console.log('handleChange');
+  };
 
-      <label>Owner name</label>
-      <input
-        type="text"
-        name="owner-name"
-        className="u-full-width"
-        placeholder="Owner name"
-      />
+  return (
+    <Fragment>
+      <h2>Create appointment</h2>
 
-      <label>Date</label>
-      <input type="date" name="date" className="u-full-width" />
+      <form action="">
+        <label>Pet name</label>
+        <input
+          type="text"
+          name="petName"
+          className="u-full-width"
+          placeholder="Pet name"
+          onChange={handleChange}
+        />
 
-      <label>Time</label>
-      <input type="time" name="time" className="u-full-width" />
+        <label>Owner name</label>
+        <input
+          type="text"
+          name="ownerName"
+          className="u-full-width"
+          placeholder="Owner name"
+          onChange={handleChange}
+        />
 
-      <label>Symptoms</label>
-      <textarea name="symptoms" className="u-full-width"></textarea>
+        <label>Date</label>
+        <input
+          type="date"
+          name="date"
+          className="u-full-width"
+          onChange={handleChange}
+        />
 
-      <button className="u-full-width button-primary">Save</button>
-    </form>
-  </Fragment>
-);
+        <label>Time</label>
+        <input
+          type="time"
+          name="time"
+          className="u-full-width"
+          onChange={handleChange}
+        />
 
+        <label>Symptoms</label>
+        <textarea
+          name="symptoms"
+          className="u-full-width"
+          onChange={handleChange}
+        ></textarea>
+
+        <button className="u-full-width button-primary">Save</button>
+      </form>
+    </Fragment>
+  );
+};
 export default Form;
