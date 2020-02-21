@@ -9,6 +9,10 @@ const App = () => {
     setAppointments([...appointments, appointment]);
   };
 
+  const removeAppointment = id => {
+    setAppointments(appointments.filter(a => a.id !== id));
+  };
+
   return (
     <Fragment>
       <h1>Patient manager</h1>
@@ -20,9 +24,17 @@ const App = () => {
           </div>
 
           <div className="one-half column">
-            <h2>Appointments</h2>
+            <h2>
+              {appointments.length
+                ? 'Appointments'
+                : 'No appointments scheduled'}
+            </h2>
             {appointments.map(appointment => (
-              <Appointment key={appointment.id} appointment={appointment} />
+              <Appointment
+                key={appointment.id}
+                appointment={appointment}
+                removeAppointment={removeAppointment}
+              />
             ))}
           </div>
         </div>

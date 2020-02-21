@@ -2,11 +2,13 @@ import React from 'react';
 import './appointment.scss';
 
 const Appointment = ({
+  appointment: {id},
   appointment: {petName},
   appointment: {ownerName},
   appointment: {date},
   appointment: {time},
-  appointment: {symptoms}
+  appointment: {symptoms},
+  removeAppointment
 }) => (
   <div className="appointment">
     <p>
@@ -24,6 +26,14 @@ const Appointment = ({
     <p>
       Symptoms: <span>{symptoms}</span>
     </p>
+
+    <button
+      type="button"
+      className="button delete u-full-width"
+      onClick={() => removeAppointment(id)}
+    >
+      Remove
+    </button>
   </div>
 );
 export default Appointment;
